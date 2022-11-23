@@ -1,21 +1,32 @@
 <h1>My Todo's</h1>
+<div class=container>
+    <div class="alert alert-success" *ngIf="message">{{ message }}</div>
+<div>
 <div class="container table-responsive-md">
 <table class="table table-hover">
     <thead>
         <tr>
-            <th>Id</th>
+            <!-- <th>Id</th> -->
             <th>Description</th>
             <th>IsCompleted</th>
             <th>Target Date</th>
+            <th>Update</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let todo of todos">
-            <td>{{todo.id}}</td>
+            <!-- <td>{{todo.id}}</td> -->
             <td>{{todo.description}}</td>
             <td>{{todo.done}}</td>
             <td>{{todo.targetDate | date |uppercase}}</td>
+            <td><button (click)="updateTodo(todo.id)" class="btn btn-success">Update</button></td>
+            <td><button (click)="deleteTodo(todo.id)" class="btn btn-warning">Delete</button></td>
         </tr>
     </tbody>
 </table>
+
+<div class="row">
+    <button (click)="addTodo()" class="btn btn-success">Add</button>
+</div>
 </div>
