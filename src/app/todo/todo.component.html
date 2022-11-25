@@ -1,6 +1,6 @@
 <h1>Todo</h1>
 <div class="conatiner">
-    <div class="alert alert-warning" *ngIf="todoForm.dirty && todoForm.touched">Enter valid values</div>
+    <div class="alert alert-warning" *ngIf="todoForm.invalid && todoForm.touched">Enter valid values</div>
 <form (ngSubmit)="!todoForm.invalid && saveTodo()" #todoForm="ngForm">
     <fieldset class="form-group">
         <label>Description</label>
